@@ -1,0 +1,7 @@
+{
+  "name": "korbo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
