@@ -237,7 +237,10 @@ const confirmDelete = async (decisionId: number) => {
 };
 const editDecision = (decision: Decision) => {
   if (decision) {
-    router.push(`/edit/${decision.id}`);
+    if (decision.step === "results") {
+      decision.step = "alternatives";
+    }
+    router.replace(`/edit/${decision.id}`);
   }
 };
 const showExitToast = async () => {
