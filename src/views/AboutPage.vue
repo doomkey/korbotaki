@@ -42,9 +42,9 @@
           <ion-icon :icon="logoGithub" slot="start"></ion-icon>
           <ion-label>{{ t("about.sourceCode") }}</ion-label>
         </ion-item>
-        <ion-item button :detail="false" @click="checkForUpdate">
+        <ion-item button :detail="false" @click="handleUpdateCheck">
           <ion-icon :icon="cloudDownload" slot="start"></ion-icon>
-          <ion-label>{{ t("about.checkForUpdate") }}</ion-label>
+          <ion-label>{{ t("checkForUpdate") }}</ion-label>
         </ion-item>
       </ion-list>
     </ion-content>
@@ -75,7 +75,7 @@ import { App } from "@capacitor/app";
 import { Browser } from "@capacitor/browser";
 import { onMounted, ref } from "vue";
 import { useUpdater } from "@/composables/useUpdater";
-const { checkForUpdate } = useUpdater();
+const { checkForUpdate, presentUpdateAlert } = useUpdater();
 
 const openGitHub = async () => {
   await Browser.open({ url: "https://github.com/doomkey/korbotaki" });
@@ -92,6 +92,10 @@ onMounted(async () => {
     appVersion.value = "1.1.0";
   }
 });
+const handleUpdateCheck = async () => {
+  const updateInfo = await checkForUpdate(true);
+  await presentUpdateAlert(updateInfo);
+};
 </script>
 
 <style scoped>
