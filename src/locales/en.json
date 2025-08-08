@@ -1,0 +1,136 @@
+{
+    "homepage": {
+        "title": "Korbotaki",
+        "empty_state_heading": "No Decisions Yet",
+        "empty_state_prompt": "Tap the '+' button to create your first decision.",
+        "status_completed": "Completed",
+        "status_in_progress": "In Progress",
+        "created": "Created",
+        "new_decision": "New Decision",
+        "new_decision_subtitle": "What decision do you need to make?",
+        "new_decision_example": "e.g., 'Choose a new phone'"
+    },
+    "alternative": {
+        "heading": "Add Alternatives",
+        "subheading": "What are your options?",
+        "new_label": "New Alternative",
+        "new_placeholder": "e.g., 'iPhone', 'S25 Ultra'",
+        "add_button": "Add Alternative",
+        "swipe_hint": "Swipe left on an item to delete.",
+        "name_label": "Alternative Name"
+    },
+    "criteria": {
+        "add": "Add Criteria",
+        "add_single": "Add Criterion",
+        "title": "Define Criteria",
+        "subtitle": "How will you judge the options?",
+        "newCriterionLabel": "New Criterion",
+        "newCriterionPlaceholder": "e.g., 'Cost', 'Ease of Use'",
+        "commonPrompt": "Or add a common one",
+        "criterionNameLabel": "Criterion Name",
+        "higherBetter": "Higher Better",
+        "lowerBetter": "Lower Better",
+        "navAlternatives": "Alternatives",
+        "navRank": "Rank Criteria",
+        "common": {
+            "cost": "Cost",
+            "benefit": "Benefit",
+            "timeNeeded": "Time Needed",
+            "satisfaction": "Satisfaction",
+            "effort": "Effort"
+        },
+        "toast": {
+            "duplicate": "Criterion \"{name}\" already exists."
+        }
+    },
+    "ranking": {
+        "title": "Rank Criteria",
+        "subtitle": "Which is more important?",
+        "comparisonCounter": "Comparison {current} of {total}",
+        "vs": "vs.",
+        "completed": "All criteria have been ranked!",
+        "reRankButton": "Re-rank Criteria",
+        "navCriteria": "Criteria",
+        "navScores": "Enter Scores"
+    },
+    "scoring": {
+        "backButton": "Back to Criteria Ranking",
+        "title": "Score \"{name}\"",
+        "subtitle": "Assign a score from 1 to 10 for each alternative.",
+        "rangeAriaLabel": "Score",
+        "prevCriterionButton": "Prev. Criterion",
+        "nextCriterionButton": "Next Criterion",
+        "resultsButton": "See Results"
+    },
+    "detail": {
+        "resultsCard": {
+            "title": "Final Results",
+            "subtitle": "The best option based on your input."
+        },
+        "breakdownCard": {
+            "title": "Score Breakdown",
+            "subtitle": "Scores given for each criterion, ranked by importance."
+        },
+        "chip": {
+            "higherBetter": "Higher Better",
+            "lowerBetter": "Lower Better"
+        },
+        "deleteDialog": {
+            "header": "Confirm Delete",
+            "message": "Are you sure you want to permanently delete this decision?"
+        }
+    },
+    "common": {
+        "next": "Next",
+        "previous": "Previous",
+        "delete": "Delete",
+        "cancel": "Cancel",
+        "edit": "Edit",
+        "options": "Options",
+        "create": "Create",
+        "ok": "OK",
+        "error": "Error",
+        "updateAvailable": "Update Available"
+    },
+    "settings": {
+        "title": "Settings",
+        "language": "Language",
+        "english": "English",
+        "bangla": "Bangla",
+        "appearance": "Appearance",
+        "darkMode": "Dark Mode",
+        "darkModeAriaLabel": "Toggle Dark Mode",
+        "textSize": "Text Size",
+        "size": {
+            "small": "Small",
+            "medium": "Medium",
+            "large": "Large"
+        },
+        "dataManagement": "Data Management",
+        "clearFavorites": "Clear Favorites",
+        "aboutApp": "About App"
+    },
+    "about": {
+        "title": "About App",
+        "appName": "Korbotaki",
+        "version": "Version",
+        "information": "Information",
+        "developer": "Developer",
+        "developerName": "Imran Molla Joy",
+        "publisher": "Publisher",
+        "publisherName": "Doomkey",
+        "links": "Links",
+        "sourceCode": "Source Code",
+        "checkForUpdate": "Check for Update",
+        "update": {
+            "checking": "Checking for updates...",
+            "available": "Update Available",
+            "availableMessage": "A new version is available. Would you like to download it now?",
+            "later": "Later",
+            "download": "Download",
+            "none": "No Updates Found",
+            "noneMessage": "You are on the latest version.",
+            "failed": "Could not check for updates. Please check your internet connection and try again."
+        }
+    }
+}

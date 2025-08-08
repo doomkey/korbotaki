@@ -1,9 +1,9 @@
-import type { CapacitorConfig } from '@capacitor/cli';
+import type { CapacitorConfig } from "@capacitor/cli";
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'korbo',
-  webDir: 'dist'
+  appId: "com.doomkey.koronio",
+  appName: "Korbotaki",
+  webDir: "dist",
 };
 
 export default config;

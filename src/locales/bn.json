@@ -1,0 +1,143 @@
+{
+    "homepage": {
+        "title": "করবোটা কি",
+        "empty_state_heading": "এখনও কোন সিদ্ধান্ত নেই",
+        "empty_state_prompt": "সিদ্ধান্ত নিতে '+' চাপুন করুন।",
+        "status_completed": "সম্পন্ন",
+        "status_in_progress": "চলমান",
+        "created": "তৈরি",
+        "new_decision": "নতুন সিদ্ধান্ত",
+        "new_decision_subtitle": "আপনি কি সিদ্ধান্ত নিতে চান?",
+        "new_decision_example": "যেমন, নতুন ফোন কেনা"
+    },
+    "alternative": {
+        "heading": "বিকল্প যোগ করুন",
+        "subheading": "আপনার বিকল্পগুলো কি কি?",
+        "new_label": "নতুন বিকল্প",
+        "new_placeholder": "যেমন, 'আইফোন', 'S25 আল্ট্রা'",
+        "add_button": "যোগ করুন",
+        "swipe_hint": "মুছে ফেলতে আইটেম বাম দিকে সোয়াইপ করুন।",
+        "name_label": "বিকল্পের নাম"
+    },
+    "criteria": {
+        "add": "নির্ণায়ক যোগ",
+        "add_single": "নির্ণায়ক যোগ",
+        "title": "নির্ণায়ক নির্ধারণ করুন",
+        "subtitle": "আপনি বিকল্পগুলো কীভাবে বিচার করবেন?",
+        "newCriterionLabel": "নতুন নির্ণায়ক",
+        "newCriterionPlaceholder": "যেমন, 'খরচ', 'ব্যবহারে সুবিধা'",
+        "addCriterionButton": "নির্ণায়ক যোগ করুন",
+        "commonPrompt": "অথবা একটি সাধারণ নির্ণায়ক যোগ করুন",
+        "swipeToDelete": "মুছে ফেলতে আইটেমটি বামে সোয়াইপ করুন।",
+        "criterionNameLabel": "নির্ণায়কের নাম",
+        "higherBetter": "বেশি হলে ভালো",
+        "lowerBetter": "কম হলে ভালো",
+        "navAlternatives": "বিকল্প",
+        "navRank": "নির্ণায়কের র‍্যাঙ্ক করুন",
+        "common": {
+            "cost": "খরচ",
+            "benefit": "সুবিধা",
+            "timeNeeded": "প্রয়োজনীয় সময়",
+            "satisfaction": "সন্তুষ্টি",
+            "effort": "প্রচেষ্টা"
+        },
+        "toast": {
+            "duplicate": "নির্ণায়ক \"{name}\" ইতিমধ্যে বিদ্যমান।"
+        }
+    },
+    "ranking": {
+        "title": "নির্ণায়কের র‍্যাঙ্ক করুন",
+        "subtitle": "কোনটি বেশি গুরুত্বপূর্ণ?",
+        "comparisonCounter": "তুলনা {total} এর মধ্যে {current}",
+        "vs": "বনাম",
+        "completed": "সমস্ত নির্ণায়কের র‍্যাঙ্ক করা হয়েছে!",
+        "reRankButton": "পুনরায় র‍্যাঙ্ক করুন",
+        "navCriteria": "নির্ণায়ক",
+        "navScores": "স্কোর লিখুন"
+    },
+    "scoring": {
+        "backButton": "নির্ণায়ক র‍্যাঙ্কিংয়ে ফিরে যান",
+        "title": "\"{name}\" এর জন্য স্কোর দিন",
+        "subtitle": "প্রতিটি বিকল্পের জন্য ১ থেকে ১০ এর মধ্যে একটি স্কোর দিন।",
+        "rangeAriaLabel": "স্কোর",
+        "prevCriterionButton": "পূর্ববর্তী নির্ণায়ক",
+        "nextCriterionButton": "পরবর্তী নির্ণায়ক",
+        "resultsButton": "ফলাফল দেখুন"
+    },
+    "detail": {
+        "resultsCard": {
+            "title": "চূড়ান্ত ফলাফল",
+            "subtitle": "আপনার ইনপুটের উপর ভিত্তি করে সেরা বিকল্প।"
+        },
+        "breakdownCard": {
+            "title": "স্কোরের বিস্তারিত",
+            "subtitle": "গুরুত্ব অনুসারে প্রতিটি নির্ণায়কের জন্য দেওয়া স্কোর।"
+        },
+        "chip": {
+            "higherBetter": "বেশি হলে ভালো",
+            "lowerBetter": "কম হলে ভালো"
+        },
+        "actionSheet": {
+            "header": "বিকল্প"
+        },
+        "deleteDialog": {
+            "header": "নিশ্চিত করুন",
+            "message": "আপনি কি এই সিদ্ধান্তটি স্থায়ীভাবে মুছে ফেলতে চান?",
+            "buttonDelete": "মুছুন",
+            "buttonCancel": "বাতিল করুন"
+        }
+    },
+    "common": {
+        "next": "পরবর্তী",
+        "previous": "পূর্ববর্তী",
+        "delete": "মুছে ফেলুন",
+        "cancel": "বাতিল",
+        "create": "তৈরি",
+        "edit": "সম্পাদনা",
+        "options": "বিকল্প",
+        "ok": "ঠিক আছে",
+        "error": "ত্রুটি",
+        "updateAvailable": "আপডেট আছে!"
+    },
+    "settings": {
+        "title": "সেটিংস",
+        "language": "ভাষা",
+        "english": "English",
+        "bangla": "বাংলা",
+        "appearance": "প্রদর্শন",
+        "darkMode": "ডার্ক মোড",
+        "darkModeAriaLabel": "ডার্ক মোড পরিবর্তন করুন",
+        "textSize": "লেখার আকার",
+        "size": {
+            "small": "ছোট",
+            "medium": "মাঝারি",
+            "large": "বড়"
+        },
+        "dataManagement": "ডেটা ম্যানেজমেন্ট",
+        "clearFavorites": "পছন্দসই তালিকা মুছুন",
+        "aboutApp": "অ্যাপ সম্পর্কে"
+    },
+    "about": {
+        "title": "অ্যাপ সম্পর্কে",
+        "appName": "করবোটাকি",
+        "version": "সংস্করণ",
+        "information": "তথ্য",
+        "developer": "ডেভেলপার",
+        "developerName": "ইমরান মোল্লা জয়",
+        "publisher": "প্রকাশক",
+        "publisherName": "Doomkey",
+        "links": "লিঙ্কসমূহ",
+        "sourceCode": "সোর্স কোড",
+        "checkForUpdate": "আপডেট যাচাই করুন",
+        "update": {
+            "checking": "আপডেট খোঁজা হচ্ছে...",
+            "available": "আপডেট আছে",
+            "availableMessage": "একটি নতুন সংস্করণ আছে। আপনি কি এখন এটি ডাউনলোড করতে চান?",
+            "later": "পরে",
+            "download": "ডাউনলোড",
+            "none": "কোনো নতুন আপডেট নেই",
+            "noneMessage": "আপনি সর্বশেষ সংস্করণে আছেন।",
+            "failed": "আপডেট যাচাই করা যায়নি। অনুগ্রহ করে আপনার ইন্টারনেট সংযোগ পরীক্ষা করে আবার চেষ্টা করুন।"
+        }
+    }
+}

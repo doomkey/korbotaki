@@ -1,0 +1,102 @@
+#!/bin/bash
+
+# Exit immediately if a command exits with a non-zero status.
+set -e
+
+# --- Configuration ---
+# Path to your Gradle configuration file
+GRADLE_CONFIG="$HOME/Dev/Apps/korbo/android/app/build.gradle"
+# Destination for the final APK
+BACKUP_DIR="/Backups/joy/Synced/Study"
+
+# --- Error Handling Function ---
+# This function will be called if any command fails (due to 'set -e').
+function revert_changes() {
+  echo "Error: Build failed. Reverting version changes in $GRADLE_CONFIG..."
+  if [ -n "$CURRENT_VERSION_CODE" ] && [ -n "$NEW_VERSION_CODE" ]; then
+    sed -i.bak "s/versionCode $NEW_VERSION_CODE/versionCode $CURRENT_VERSION_CODE/" "$GRADLE_CONFIG"
+    sed -i.bak "s/versionName \"$NEW_VERSION_NAME\"/versionName \"$CURRENT_VERSION_NAME\"/" "$GRADLE_CONFIG"
+    rm -f "${GRADLE_CONFIG}.bak"
+    echo "Version reverted to $CURRENT_VERSION_NAME (Code: $CURRENT_VERSION_CODE)."
+  else
+    echo "Could not revert version changes, original version info not available."
+  fi
+  exit 1
+}
+
+# Set the trap to call the revert_changes function on any script error.
+trap revert_changes ERR
+
+# --- Version Name Check ---
+# Check if the new version name was provided as an argument.
+if [ -z "$1" ]; then
+  echo "Error: No version name supplied."
+  echo "Usage: ./build_android.sh <new_version_name>"
+  exit 1
+fi
+
+NEW_VERSION_NAME=$1
+
+# Check if the gradle config file exists
+if [ ! -f "$GRADLE_CONFIG" ]; then
+    echo "Error: build.gradle not found at '$GRADLE_CONFIG'"
+    echo "Please make sure you are in the root directory of your Ionic project."
+    exit 1
+fi
+
+# --- Update Version Info ---
+echo "Starting build process for version: $NEW_VERSION_NAME"
+
+# Get the current versionCode and versionName from build.gradle
+CURRENT_VERSION_CODE=$(grep 'versionCode' $GRADLE_CONFIG | awk '{print $2}')
+CURRENT_VERSION_NAME=$(grep 'versionName' $GRADLE_CONFIG | awk '{print $2}' | tr -d '"')
+
+# Increment the version code by 1
+NEW_VERSION_CODE=$((CURRENT_VERSION_CODE + 1))
+
+echo "Updating Android version..."
+echo "  Version Code: $CURRENT_VERSION_CODE -> $NEW_VERSION_CODE"
+echo "  Version Name: $CURRENT_VERSION_NAME -> $NEW_VERSION_NAME"
+
+# Use sed to replace the old version numbers in the build.gradle file.
+sed -i.bak "s/versionCode $CURRENT_VERSION_CODE/versionCode $NEW_VERSION_CODE/" $GRADLE_CONFIG
+sed -i.bak "s/versionName \"$CURRENT_VERSION_NAME\"/versionName \"$NEW_VERSION_NAME\"/" $GRADLE_CONFIG
+
+# Remove the backup files created by sed
+rm -f "${GRADLE_CONFIG}.bak"
+
+echo "Version updated in $GRADLE_CONFIG"
+
+# --- Execute Build Commands ---
+echo "Building web assets..."
+pnpm build
+
+echo "Syncing Capacitor assets to Android..."
+pnpm exec cap sync android
+
+echo "Terminating any lingering npm processes..."
+sleep 1
+pkill npm || true
+
+echo "Assembling the Android debug build (this may take a while)..."
+cd android
+gradle assembleDebug
+cd .. # Return to the project root
+
+echo "Build assembled successfully."
+
+# --- Copy Artifact ---
+# Define the source and destination paths for the APK
+APK_SOURCE="android/app/build/outputs/apk/debug/app-debug.apk"
+APK_DESTINATION="$BACKUP_DIR/app-v$NEW_VERSION_NAME.apk"
+
+echo "Copying APK to backup directory..."
+# Create the backup directory if it doesn't exist
+mkdir -p "$BACKUP_DIR"
+cp "$APK_SOURCE" "$APK_DESTINATION"
+
+# --- Finalization ---
+# Disable the trap as the script is about to exit successfully.
+trap - ERR
+
+echo "All done! Your new build is located at: $APK_DESTINATION"
