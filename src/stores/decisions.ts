@@ -29,26 +29,26 @@ export interface Decision {
 
 const sampleDecision: Decision = {
   id: 1,
-  title: "Choose a new laptop",
+  title: "Weekend activity",
   createdAt: new Date().toISOString(),
   step: "results",
   isRanked: true,
   isSample: true,
   criteria: [
-    { id: 1, name: "Performance", direction: "high" },
-    { id: 2, name: "Battery Life", direction: "high" },
-    { id: 3, name: "Price", direction: "low" },
-    { id: 4, name: "Portability", direction: "high" },
+    { id: 1, name: "Satisfaction", direction: "high" },
+    { id: 2, name: "Effort", direction: "low" },
+    { id: 3, name: "Cost", direction: "low" },
+    { id: 4, name: "Benefit", direction: "high" },
   ],
   alternatives: [
-    { id: 101, name: "Macbook", values: [9, 7, 4, 9] },
-    { id: 102, name: "Dell", values: [10, 5, 3, 4] },
-    { id: 103, name: "HP", values: [6, 9, 8, 7] },
+    { id: 101, name: "Sleeping", values: [10, 1, 1, 5] },
+    { id: 102, name: "Workout", values: [4, 8, 4, 8] },
+    { id: 103, name: "Travelling", values: [8, 10, 10, 9] },
   ],
   finalScores: [
-    { name: "Macbook", score: 81.5 },
-    { name: "Dell", score: 70.0 },
-    { name: "HP", score: 63.5 },
+    { name: "Sleeping", score: 94.4 },
+    { name: "Workout", score: 41.1 },
+    { name: "Travelling", score: 40.0 },
   ],
 };
 
