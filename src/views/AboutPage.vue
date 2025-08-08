@@ -11,7 +11,7 @@
 
     <ion-content :fullscreen="true" class="ion-padding">
       <div class="logo-container">
-        <ion-icon :icon="newspaper" class="app-logo"></ion-icon>
+        <ion-icon :icon="infinite" class="app-logo"></ion-icon>
         <h3 class="app-title">{{ t("homepage.title") }}</h3>
         <p class="app-version">{{ t("about.version") }} {{ appVersion }}</p>
       </div>
@@ -66,7 +66,7 @@ import {
   IonLabel,
   IonIcon,
 } from "@ionic/vue";
-import { logoGithub, cloudDownload, newspaper } from "ionicons/icons";
+import { logoGithub, cloudDownload, newspaper, infinite } from "ionicons/icons";
 
 import { useLanguage } from "@/composables/useLanguage";
 const { t } = useLanguage();

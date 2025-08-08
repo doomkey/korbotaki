@@ -16,7 +16,7 @@ export function useUpdater() {
     let loading = null;
     if (showLoading) {
       loading = await loadingController.create({
-        message: t("updateChecking"),
+        message: t("about.update.checking"),
         spinner: "crescent",
       });
       await loading.present();
@@ -29,7 +29,6 @@ export function useUpdater() {
       url: `https://api.github.com/repos/${owner}/${repo}/releases/latest`,
       headers: { "Content-Type": "application/json" },
     };
-
     try {
       const [appInfo, response] = await Promise.all([
         App.getInfo(),
@@ -82,14 +81,14 @@ export function useUpdater() {
   const presentUpdateAlert = async (updateInfo: UpdateInfo) => {
     if (updateInfo.isUpdateAvailable) {
       const alert = await alertController.create({
-        header: t("updateAvailable"),
-        message: `${t("updateAvailableMessage")} (v${
+        header: t("about.update.available"),
+        message: `${t("about.update.availableMessage")} (v${
           updateInfo.latestVersion
         })`,
         buttons: [
-          { text: t("updateLater"), role: "cancel" },
+          { text: t("about.update.later"), role: "cancel" },
           {
-            text: t("updateDownload"),
+            text: t("about.update.download"),
             handler: () => {
               if (updateInfo.releaseUrl) {
                 Browser.open({ url: updateInfo.releaseUrl });
@@ -101,9 +100,9 @@ export function useUpdater() {
       await alert.present();
     } else {
       const alert = await alertController.create({
-        header: t("updateNone"),
-        message: t("updateNoneMessage"),
-        buttons: [t("ok")],
+        header: t("about.update.none"),
+        message: t("about.update.noneMessage"),
+        buttons: [t("common.ok")],
       });
       await alert.present();
     }
