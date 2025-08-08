@@ -10,7 +10,7 @@ Sometimes, we are presented with choices and cannot decide on the best one. By a
 
 1. Create a new decision by tapping the ```+``` button in the homepage. Add a title for your decision, e.g. Choose a new plant. 
 
-2. Add alternatives ie. list of you all possible options. For example, if you are deciding buying a new plant to _plant_, your alternatives might be Rose, Aloe vera etc.
+2. Add alternatives ie. list of you all possible options. For example, if you are deciding to buy a new plant to _plant_, your alternatives might be Rose, Aloe vera etc.
 
 3. Define criteria by which you'll evaluate the alternatives. You can add custom ones or add from some common suggestion like 'Cost', 'Benefit' or 'Satisfaction'. Be sure to specify whether the criterion's higher score is better or lower score is better,. For example, lower 'Cost' is generally better, so you'd select Lower is Better for 'Cost'.
 
