@@ -66,9 +66,6 @@ onMounted(() => {
   const foundDecision = decisionStore.getDecisionById(decisionId);
   if (foundDecision) {
     decision.value = foundDecision;
-    if (decision.value.step === "results") {
-      decision.value.step = "alternatives";
-    }
   } else {
     router.replace("/");
   }
@@ -117,6 +114,6 @@ const calculateResults = () => {
   scores.sort((a, b) => b.score - a.score);
   decision.value.finalScores = scores;
   decision.value.step = "results";
-  router.push(`/decision/${decision.value.id}`);
+  router.replace(`/decision/${decision.value.id}`);
 };
 </script>
