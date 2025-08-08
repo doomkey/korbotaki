@@ -108,12 +108,13 @@ import { useAppUpdate } from "@/composables/useAppUpdate";
 import { useUpdater } from "@/composables/useUpdater";
 import UpdateCard from "@/components/UpdateCard.vue";
 import { App } from "@capacitor/app";
+import { onMounted } from "vue";
 const { t } = useI18n();
 const router = useRouter();
 const ionRouter = useIonRouter();
 const decisionStore = useDecisionStore();
 const { presentUpdateAlert } = useUpdater();
-const { updateInfo } = useAppUpdate();
+const { updateInfo, runUpdateCheck } = useAppUpdate();
 
 const formatDate = (dateString: string) => {
   const date = new Date(dateString);
@@ -139,7 +140,10 @@ onIonViewWillEnter(() => {
     }
   });
 });
-
+onMounted(() => {
+  runUpdateCheck();
+  console.log(updateInfo.value);
+});
 onIonViewDidLeave(() => {
   App.removeAllListeners();
 });

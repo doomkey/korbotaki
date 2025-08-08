@@ -21,6 +21,7 @@ export async function runUpdateCheck() {
 
 export function useAppUpdate() {
   return {
+    runUpdateCheck,
     updateInfo: readonly(updateInfo),
     isLoading: readonly(isLoading),
   };
