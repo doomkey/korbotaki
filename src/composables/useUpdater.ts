@@ -3,6 +3,7 @@ import { CapacitorHttp, type HttpResponse } from "@capacitor/core";
 import { Browser } from "@capacitor/browser";
 import { App } from "@capacitor/app";
 import { useLanguage } from "./useLanguage";
+import { gt } from "semver";
 interface UpdateInfo {
   isUpdateAvailable: boolean;
   latestVersion?: string;
@@ -44,7 +45,7 @@ export function useUpdater() {
         await loading.dismiss();
       }
 
-      if (latestVersion && compareVersions(latestVersion, currentVersion)) {
+      if (latestVersion && gt(latestVersion, currentVersion)) {
         return {
           isUpdateAvailable: true,
           latestVersion: latestVersion,
@@ -61,22 +62,6 @@ export function useUpdater() {
       return { isUpdateAvailable: false };
     }
   };
-  function compareVersions(v1: string, v2: string) {
-    const parts1 = v1.split(".").map(Number);
-    const parts2 = v2.split(".").map(Number);
-
-    const maxLength = Math.max(parts1.length, parts2.length);
-
-    for (let i = 0; i < maxLength; i++) {
-      const p1 = parts1[i] || 0;
-      const p2 = parts2[i] || 0;
-
-      if (p1 > p2) return 1;
-      if (p1 < p2) return -1;
-    }
-
-    return 0;
-  }
 
   const presentUpdateAlert = async (updateInfo: UpdateInfo) => {
     if (updateInfo.isUpdateAvailable) {

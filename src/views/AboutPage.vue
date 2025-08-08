@@ -44,7 +44,7 @@
         </ion-item>
         <ion-item button :detail="false" @click="handleUpdateCheck">
           <ion-icon :icon="cloudDownload" slot="start"></ion-icon>
-          <ion-label>{{ t("checkForUpdate") }}</ion-label>
+          <ion-label>{{ t("about.checkForUpdate") }}</ion-label>
         </ion-item>
       </ion-list>
     </ion-content>
