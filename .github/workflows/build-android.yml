@@ -81,7 +81,7 @@ jobs:
             --ks-key-alias "${{ secrets.KEY_ALIAS }}" \
             --ks-pass pass:"${{ secrets.KEYSTORE_PASSWORD }}" \
             --key-pass pass:"${{ secrets.KEY_ALIAS_PASSWORD }}" \
-            --out android/app/build/outputs/apk/release/app-release-signed.apk \
+            --out android/app/build/outputs/apk/release/korbotaki-release-${{ github.ref_name }}.apk \
             android/app/build/outputs/apk/release/app-release-unsigned.apk
 
       # debug
