@@ -61,15 +61,18 @@ export const useDecisionStore = defineStore("decisions", () => {
    */
   function loadDecisions() {
     const savedDecisions = localStorage.getItem("decisions_app_data");
-    if (savedDecisions && JSON.parse(savedDecisions).length > 0) {
-      const parsedDecisions = JSON.parse(savedDecisions);
+    const sampleSeen = localStorage.getItem("sample_decision_seen") === "true";
 
+    if (savedDecisions) {
+      const parsedDecisions = JSON.parse(savedDecisions);
       decisions.value = parsedDecisions.map((d: any) => ({
         ...d,
         isRanked: d.isRanked || false,
       }));
-    } else {
+    } else if (!sampleSeen) {
       decisions.value = [sampleDecision];
+    } else {
+      decisions.value = [];
     }
   }
 

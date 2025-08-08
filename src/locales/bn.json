@@ -8,7 +8,8 @@
         "created": "তৈরি",
         "new_decision": "নতুন সিদ্ধান্ত",
         "new_decision_subtitle": "আপনি কি সিদ্ধান্ত নিতে চান?",
-        "new_decision_example": "যেমন, নতুন ফোন কেনা"
+        "new_decision_example": "যেমন, নতুন ফোন কেনা",
+        "rename_decision": "নাম পরিবর্তন"
     },
     "alternative": {
         "heading": "বিকল্প যোগ করুন",
@@ -79,12 +80,6 @@
         },
         "actionSheet": {
             "header": "বিকল্প"
-        },
-        "deleteDialog": {
-            "header": "নিশ্চিত করুন",
-            "message": "আপনি কি এই সিদ্ধান্তটি স্থায়ীভাবে মুছে ফেলতে চান?",
-            "buttonDelete": "মুছুন",
-            "buttonCancel": "বাতিল করুন"
         }
     },
     "common": {
@@ -92,12 +87,17 @@
         "previous": "পূর্ববর্তী",
         "delete": "মুছে ফেলুন",
         "cancel": "বাতিল",
+        "rename": "নাম পরিবর্তন",
         "create": "তৈরি",
         "edit": "সম্পাদনা",
         "options": "বিকল্প",
         "ok": "ঠিক আছে",
         "error": "ত্রুটি",
-        "updateAvailable": "আপডেট আছে!"
+        "updateAvailable": "আপডেট আছে!",
+        "deleteDialog": {
+            "header": "নিশ্চিত করুন",
+            "message": "আপনি কি এই সিদ্ধান্তটি স্থায়ীভাবে মুছে ফেলতে চান?"
+        }
     },
     "settings": {
         "title": "সেটিংস",

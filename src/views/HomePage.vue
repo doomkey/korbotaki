@@ -25,7 +25,6 @@
           v-for="decision in decisionStore.decisions"
           :key="decision.id"
           button
-          :detail="true"
           @click="navigateToDecision(decision)"
         >
           <ion-label>
@@ -47,6 +46,13 @@
               </div>
             </div>
           </ion-label>
+          <ion-button
+            fill="clear"
+            slot="end"
+            @click.stop="presentActionSheet(decision)"
+          >
+            <ion-icon slot="icon-only" :icon="ellipsisVertical"></ion-icon>
+          </ion-button>
         </ion-item>
       </ion-list>
 
@@ -79,6 +85,7 @@ import {
   onIonViewWillEnter,
   toastController,
   useIonRouter,
+  actionSheetController,
 } from "@ionic/vue";
 import {
   addOutline,
@@ -87,6 +94,12 @@ import {
   checkmarkDoneCircleOutline,
   syncCircleOutline,
   settings,
+  ellipsisVertical,
+  pencil,
+  trash,
+  close,
+  textOutline,
+  pencilOutline,
 } from "ionicons/icons";
 import { useRouter } from "vue-router";
 import { useDecisionStore, Decision } from "@/stores/decisions";
@@ -135,7 +148,94 @@ const handleUpdateClick = () => {
     presentUpdateAlert(updateInfo.value);
   }
 };
+const presentActionSheet = async (decision: Decision) => {
+  const actionSheet = await actionSheetController.create({
+    header: decision.title,
+    buttons: [
+      {
+        text: t("common.edit"),
+        icon: pencilOutline,
+        handler: () => {
+          editDecision(decision);
+        },
+      },
+      {
+        text: t("common.rename"),
+        icon: textOutline,
+        handler: () => {
+          renameDecision(decision);
+        },
+      },
+      {
+        text: t("common.delete"),
+        role: "destructive",
+        icon: trash,
+        handler: () => {
+          confirmDelete(decision.id);
+        },
+      },
+      {
+        text: t("common.cancel"),
+        icon: close,
+        role: "cancel",
+      },
+    ],
+  });
+  await actionSheet.present();
+};
 
+const renameDecision = async (decision: Decision) => {
+  const alert = await alertController.create({
+    header: t("homepage.rename_decision"),
+    inputs: [
+      {
+        name: "newTitle",
+        type: "text",
+        value: decision.title,
+      },
+    ],
+    buttons: [
+      {
+        text: t("common.cancel"),
+        role: "cancel",
+      },
+      {
+        text: t("common.ok"),
+        handler: (data) => {
+          if (data.newTitle && data.newTitle.trim() !== "") {
+            decision.title = data.newTitle.trim();
+          }
+        },
+      },
+    ],
+  });
+  await alert.present();
+};
+
+const confirmDelete = async (decisionId: number) => {
+  const alert = await alertController.create({
+    header: t("common.deleteDialog.header"),
+    message: t("common.deleteDialog.message"),
+    buttons: [
+      {
+        text: t("common.cancel"),
+        role: "cancel",
+      },
+      {
+        text: t("common.delete"),
+        handler: () => {
+          decisionStore.deleteDecision(decisionId);
+        },
+      },
+    ],
+  });
+  await alert.present();
+};
+const editDecision = (decision: Decision) => {
+  if (decision) {
+    router.push(`/edit/${decision.id}`);
+  }
+};
 const showExitToast = async () => {
   const toast = await toastController.create({
     message: "Press back again to exit",
@@ -145,9 +245,7 @@ const showExitToast = async () => {
   });
   await toast.present();
 };
-/**
- * Creates a new decision after prompting for a title.
- */
+
 const handleCreateNew = async () => {
   const alert = await alertController.create({
     header: t("homepage.new_decision"),

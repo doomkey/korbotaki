@@ -8,7 +8,8 @@
         "created": "Created",
         "new_decision": "New Decision",
         "new_decision_subtitle": "What decision do you need to make?",
-        "new_decision_example": "e.g., 'Choose a new phone'"
+        "new_decision_example": "e.g., 'Choose a new phone'",
+        "rename_decision": "Rename Decision"
     },
     "alternative": {
         "heading": "Add Alternatives",
@@ -74,23 +75,24 @@
         "chip": {
             "higherBetter": "Higher Better",
             "lowerBetter": "Lower Better"
-        },
-        "deleteDialog": {
-            "header": "Confirm Delete",
-            "message": "Are you sure you want to permanently delete this decision?"
         }
     },
     "common": {
         "next": "Next",
         "previous": "Previous",
         "delete": "Delete",
+        "rename": "Rename",
         "cancel": "Cancel",
         "edit": "Edit",
         "options": "Options",
         "create": "Create",
         "ok": "OK",
         "error": "Error",
-        "updateAvailable": "Update Available"
+        "updateAvailable": "Update Available",
+        "deleteDialog": {
+            "header": "Confirm Delete",
+            "message": "Are you sure you want to permanently delete this decision?"
+        }
     },
     "settings": {
         "title": "Settings",

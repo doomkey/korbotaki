@@ -8,14 +8,14 @@
           </ion-button>
         </ion-buttons>
         <ion-title>{{ decision?.title }}</ion-title>
-        <ion-buttons slot="end">
+        <!-- <ion-buttons slot="end">
           <ion-button @click="presentActionSheet">
             <ion-icon
               slot="icon-only"
               :icon="ellipsisVerticalOutline"
             ></ion-icon>
           </ion-button>
-        </ion-buttons>
+        </ion-buttons> -->
       </ion-toolbar>
     </ion-header>
 
